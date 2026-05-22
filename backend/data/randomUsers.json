@@ -1,0 +1,62 @@
+[
+  {
+    "name": "John Smith",
+    "email": "johnsmith@gmail.com",
+    "country": "United States",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=John"
+  },
+  {
+    "name": "Emma Watson",
+    "email": "emmawatson@gmail.com",
+    "country": "United Kingdom",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma"
+  },
+  {
+    "name": "Carlos Mendes",
+    "email": "carlos@gmail.com",
+    "country": "Brazil",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos"
+  },
+  {
+    "name": "Sophia Lee",
+    "email": "sophia@gmail.com",
+    "country": "South Korea",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia"
+  },
+  {
+    "name": "Rahul Sharma",
+    "email": "rahul@gmail.com",
+    "country": "India",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Rahul"
+  },
+  {
+    "name": "Olivia Brown",
+    "email": "olivia@gmail.com",
+    "country": "Canada",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Olivia"
+  },
+  {
+    "name": "Liam Johnson",
+    "email": "liam@gmail.com",
+    "country": "Australia",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Liam"
+  },
+  {
+    "name": "Ava Martinez",
+    "email": "ava@gmail.com",
+    "country": "Spain",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Ava"
+  },
+  {
+    "name": "Noah Wilson",
+    "email": "noah@gmail.com",
+    "country": "New Zealand",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Noah"
+  },
+  {
+    "name": "Mia Anderson",
+    "email": "mia@gmail.com",
+    "country": "Sweden",
+    "image": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mia"
+  }
+]
