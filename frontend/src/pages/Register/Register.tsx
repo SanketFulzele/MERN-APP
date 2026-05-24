@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Container, Form, Button, InputGroup } from 'react-bootstrap';
 import { Eye, EyeOff } from 'lucide-react';
@@ -12,17 +13,8 @@ function Register(){
   const [showPassword,setShowPassword] = useState(false);
 
   const handleRegister = async () => {
-
-    await fetch("http://localhost:5000/auth/register",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({email,password})
-    });
-
-    navigate("/");
-
+    await axios.post("http://localhost:5000/auth/register", { email, password });
+    navigate("/login");
   };
 
   return(
@@ -72,7 +64,7 @@ function Register(){
 
           Already have account?
 
-          <Link to="/"> Login</Link>
+          <Link to="/login"> Login</Link>
 
         </p>
 

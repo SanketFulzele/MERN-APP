@@ -1,0 +1,28 @@
+/* dashboard.css */
+
+.dashboard-container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.carousel-caption-custom {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-caption-custom h3 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.carousel-caption-custom p {
+  font-size: 18px;
+}

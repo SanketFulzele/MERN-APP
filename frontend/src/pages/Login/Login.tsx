@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Container, Form, Button, InputGroup } from 'react-bootstrap';
 import { Eye, EyeOff } from 'lucide-react';
+import axios from "axios";
+import { toast } from "react-toastify";
+
 
 function Login() {
 
@@ -11,24 +14,27 @@ function Login() {
   const [password,setPassword] = useState("");
   const [showPassword,setShowPassword] = useState(false);
 
-  const handleLogin = async () => {
 
-    const res = await fetch("http://localhost:5000/auth/login",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({email,password})
-    });
+const handleLogin = async () => {
+  try {
+    const res = await axios.post("http://localhost:5000/auth/login",{
+        email,
+        password,
+      }
+    );
 
-    const data = await res.json();
+    const token = res.data?.token;
 
-    if(data.token){
-      localStorage.setItem("token",data.token);
-      navigate("/dashboard");
+    if (token) {
+      toast.success("Login successful!");
+      localStorage.setItem("token", token);
+      navigate("/");
     }
-
-  };
+  } catch (error) {
+    toast.error("Login failed!");
+    console.error("Login Error:", error);
+  }
+};
 
   return (
 
@@ -41,15 +47,10 @@ function Login() {
         <Form.Group className="mb-3">
 
           <Form.Control
-
             type="email"
-
             placeholder="Email"
-
             value={email}
-
             onChange={(e)=>setEmail(e.target.value)}
-
           />
 
         </Form.Group>
@@ -74,17 +75,12 @@ function Login() {
         <Button variant="primary" onClick={handleLogin} className="w-100">Login</Button>
 
         <p className="text-center mt-3">
-
           Don't have account?
-
           <Link to="/register"> Register</Link>
-
         </p>
-
       </Form>
 
     </Container>
-
   );
 
 }
