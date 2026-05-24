@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./dashboard.css";
-import axios from "axios";
+import api from "../../api/axios";
 
 interface CarouselItem {
   id: number;
@@ -17,12 +17,10 @@ const Dashboard = () => {
 
   const getCarouselData = async (): Promise<void> => {
     try {
-      const response = await axios.get<CarouselItem[]>(
-        "http://localhost:5000/dashboard/carousel-data"
+      const response = await api.get<CarouselItem[]>(
+        "/dashboard/carousel-data"
       );
-
       console.log(response.data, "carouselData");
-
       setCarouselData(response.data);
     } catch (error) {
       console.error("Carousel API Error:", error);

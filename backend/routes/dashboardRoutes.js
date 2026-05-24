@@ -6,7 +6,9 @@ const {
   addCarouselData
 } = require("../controllers/dashboardController");
 
-router.get("/carousel-data", getCarouselData);
-router.post("/add-carousel-data", addCarouselData);
+const { auth } = require("../middlewares/authMiddleware");
+
+router.get("/carousel-data", auth, getCarouselData);
+router.post("/add-carousel-data", auth, addCarouselData);
 
 module.exports = router;
