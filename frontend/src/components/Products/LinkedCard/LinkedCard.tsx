@@ -1,10 +1,41 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 import "./LinkedCard.css"
 import api from '../../../api/axios'
 
+interface Comment {
+  id: string
+  user?: string
+  text?: string
+}
+
+interface LinkedPost {
+  id: string
+  heading?: string
+  description?: string
+}
+
+interface ReactionData {
+  postId: string
+  likes?: number
+  dislikes?: number
+}
+
+interface DetailsData {
+  postId: string
+  tags?: string[]
+  comments?: Comment[]
+}
+
+interface Post extends LinkedPost {
+  likes: number
+  dislikes: number
+  tags: string[]
+  comments: Comment[]
+}
+
 const LinkedCard = () => {
 
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState<Post[]>([])
 
     useEffect(() => {
         let active = true
@@ -17,21 +48,21 @@ const LinkedCard = () => {
                     api.get('/api/post-details'),
                 ])
 
-                const mergedData = postsRes?.data?.data?.map((values) => {
-                    const reactionData = reactionRes?.data?.data?.find((rec) => values.id === rec.postId)
-                    const detailsData = detailsRes?.data?.data?.find((det) => values.id === det.postId)
+                const mergedData = postsRes?.data?.data?.map((values: LinkedPost) => {
+                    const reactionData = reactionRes?.data?.data?.find((rec: ReactionData) => values.id === rec.postId)
+                    const detailsData = detailsRes?.data?.data?.find((det: DetailsData) => values.id === det.postId)
 
                     return {
                         ...values,
-                        likes: reactionData?.likes,
-                        dislikes: reactionData?.dislikes,
-                        tags: detailsData?.tags,
-                        comments: detailsData?.comments,
+                        likes: reactionData?.likes ?? 0,
+                        dislikes: reactionData?.dislikes ?? 0,
+                        tags: detailsData?.tags ?? [],
+                        comments: detailsData?.comments ?? [],
                     }
-                })
+                }) ?? []
 
                 if (active) {
-                    setPosts(mergedData || [])
+                    setPosts(mergedData)
                 }
             } catch (error) {
                 console.log(error)
