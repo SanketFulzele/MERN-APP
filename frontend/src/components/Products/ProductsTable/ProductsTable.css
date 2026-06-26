@@ -1,0 +1,82 @@
+
+
+.products-table-container {
+    padding: 10px 40px;
+}
+
+.product-table {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.product-table th,
+.product-table td {
+  padding: 6px 10px !important;
+  vertical-align: middle;
+}
+
+.product-table th {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.product-table td {
+  font-size: 12px;
+}
+
+.product-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.product-table .action-icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.product-table .edit-icon,
+.product-table .delete-icon {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+
+
+
+.action-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-icon {
+  cursor: pointer;
+  color: #2563eb;
+  transition: 0.2s;
+}
+
+.edit-icon:hover {
+   color: #1747af;
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: #dc2626;
+  transition: 0.2s;
+}
+
+.delete-icon:hover {
+   color: #aa1111;
+}
+
+.add-icon {
+  cursor: pointer;
+  color: #32de2c;
+  transition: 0.2s;
+}
+
+.add-icon:hover {
+   color: #0da21c;
+}

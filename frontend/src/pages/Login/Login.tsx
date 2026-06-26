@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Container, Form, Button, InputGroup } from 'react-bootstrap';
 import { Eye, EyeOff } from 'lucide-react';
-import axios from "axios";
+import api from "../../api/axios";
 import { toast } from "react-toastify";
 
 
@@ -10,14 +10,14 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
+  const [email,setEmail] = useState("owner@gmail.com");
+  const [password,setPassword] = useState("123");
   const [showPassword,setShowPassword] = useState(false);
 
 
 const handleLogin = async () => {
   try {
-    const res = await axios.post("http://localhost:5000/auth/login",{
+    const res = await api.post("/auth/login", {
         email,
         password,
       }

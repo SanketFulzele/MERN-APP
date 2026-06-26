@@ -4,6 +4,7 @@ import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ToastProvider from "./components/ToastProvider/ToastProvider";
 import User from "./pages/User/User";
+import List from "./pages/List/List";
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<User />} />
+        <Route path="/list" element={<List />} />
 
       </Routes>
 

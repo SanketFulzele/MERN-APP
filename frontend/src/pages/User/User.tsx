@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react"
-import axios from "axios"
+import api from "../../api/axios"
 import { Table } from "react-bootstrap"
 
 import "./User.css"
 import { showError, showSuccess } from "../../components/ToastProvider/toastService"
-
-const api = axios.create({
-  baseURL: "http://localhost:5000/mern",
-})
 
 interface UserType {
   _id: string
@@ -31,7 +27,7 @@ const User = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true)
-      const res = await api.get("/all-user")
+      const res = await api.get("/mern/all-user")
       setRowData(res.data || [])
     } catch (err: any) {
       showError(err.message)
@@ -63,14 +59,14 @@ const User = () => {
 
     try {
       if (editingUser) {
-        await api.put(`/edit-user/${editingUser._id}`, {
+        await api.put(`/mern/edit-user/${editingUser._id}`, {
           name,
           email,
         })
 
         showSuccess("User updated successfully")
       } else {
-        await api.post("/add-user", {
+        await api.post("/mern/add-user", {
           name,
           email,
         })
@@ -91,7 +87,7 @@ const User = () => {
 
   const handleDelete = async () => {
     try {
-      await api.delete(`/delete-user/${deleteId}`)
+      await api.delete(`/mern/delete-user/${deleteId}`)
 
       showSuccess("User deleted successfully")
 

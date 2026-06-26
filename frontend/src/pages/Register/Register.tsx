@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../../api/axios";
 import { useNavigate, Link } from "react-router-dom";
 import { Container, Form, Button, InputGroup } from 'react-bootstrap';
 import { Eye, EyeOff } from 'lucide-react';
@@ -13,7 +13,7 @@ function Register(){
   const [showPassword,setShowPassword] = useState(false);
 
   const handleRegister = async () => {
-    await axios.post("http://localhost:5000/auth/register", { email, password });
+    await api.post("/auth/register", { email, password });
     navigate("/login");
   };
 
